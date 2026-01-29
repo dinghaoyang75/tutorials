@@ -37,8 +37,17 @@ header ipv4_t {
     ip4Addr_t dstAddr;
 }
 
-struct metadata {
-    /* empty */
+//struct metadata {//如果需要在处理过程中记录某些中间信息，可以添加字段：
+    /* empty */  //bit<8>  traffic_class;      // 流量分类
+   //  bit<16> flow_id 流 ID
+   //  bit<1>  is_multicast 是否组播}}
+
+struct myCustomProtocol_t {//如果需要在处理过程中记录某些中间信息，可以添加字段：
+    bit<16>   proto_id;
+    bit<8>    vrtual_connection_id;
+    bit<8>    flags;
+    bit<16>   src_node_id;
+    bit<16>   dst_node_id;
 }
 
 struct headers {
